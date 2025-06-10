@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import Seo from '../../components/Seo/Seo'
+import thumb from '../../assets/content/thumb.jpg'
 
 const About = () => {
   return (
@@ -32,29 +33,32 @@ const About = () => {
       </Hero>
 
       <AboutSection>
-        <SectionTitle>
-          <span>Who We Are</span>
-          <h2>About Blentrik</h2>
-        </SectionTitle>
-
         <AboutContent>
-          <AboutText
+          <AboutImage
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+            <img src={thumb} alt="About Blentrik" />
+          </AboutImage>
+          <AboutText
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <p>
-              Blentrik is a student-led creative studio built by a bunch of passionate college freelancers who love designing, coding, and animating. From clean websites to bold posters, sleek UI/UX to engaging 3D visuals — we turn ideas into digital reality.
+              We're a young creative studio that's been crafting digital experiences for the past two years. While we're just starting our journey as a studio, our team members have been working in design, development, and animation for a while now.
             </p>
             <p>
-              Born from the creative energy of young minds, we bring a fresh perspective to every project. Our team of college freelancers combines academic knowledge with real-world creativity, allowing us to approach challenges with innovative solutions that larger agencies might miss. We're not just students; we're digital artists, developers, and animators who are passionate about creating exceptional work.
+              From websites to social media graphics, UI/UX to 3D animations - we're passionate about turning ideas into reality. We might be new as a studio, but we bring real experience and fresh perspectives to every project.
             </p>
             <p>
-              What sets us apart is our ability to blend technical expertise with creative thinking. Whether it's crafting a stunning website, designing eye-catching social media content, or creating immersive 3D animations, we pour our passion into every pixel and line of code. Our work reflects the energy and innovation of youth, while maintaining professional standards that exceed expectations.
+              What makes us different? We're young, we're hungry, and we're not afraid to try new things.
             </p>
             <p>
-              Young minds, fresh vibes, real results.
+              Young team, fresh ideas, real experience.
             </p>
           </AboutText>
         </AboutContent>
@@ -103,17 +107,18 @@ const About = () => {
 }
 
 const Container = styled.div`
-  padding-top: 80px;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  background: transparent;
 `
 
 const Hero = styled.section`
-  height: 50vh;
-  min-height: 400px;
+  height: 60vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -127,26 +132,33 @@ const Hero = styled.section`
 
 const HeroContent = styled.div`
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 5vw;
+  text-align: center;
   z-index: 1;
 
   h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(3rem, 8vw, 5rem);
     line-height: 1.2;
     margin-bottom: ${({ theme }) => theme.spacing.md};
+    font-weight: 700;
   }
 
   p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    max-width: 800px;
+    margin: 0 auto;
     color: ${({ theme }) => theme.colors.textSecondary};
+    line-height: 1.6;
   }
 
   @media ${({ theme }) => theme.breakpoints.mobile} {
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
 `
@@ -185,7 +197,7 @@ const AboutContent = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.spacing.xl};
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   align-items: center;
 
@@ -199,13 +211,15 @@ const AboutText = styled(motion.div)`
     margin-bottom: ${({ theme }) => theme.spacing.md};
     color: ${({ theme }) => theme.colors.textSecondary};
     line-height: 1.6;
+    font-size: 1.1rem;
   }
 `
 
 const AboutImage = styled(motion.div)`
   img {
     width: 100%;
-    border-radius: 8px;
+    height: auto;
+    border-radius: 12px;
     box-shadow: ${({ theme }) => theme.shadows.lg};
   }
 `

@@ -11,8 +11,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
+      const isScrolled = window.scrollY > 50
+      setScrolled(isScrolled)
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -30,6 +32,7 @@ const Navbar = () => {
 
       <Menu isOpen={isOpen}>
         <MenuLink to="/" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.3 }}>Home</MenuLink>
+        <MenuLink to="/portfolio" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4 }}>Portfolio</MenuLink>
         <MenuLink to="/services" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4 }}>Services</MenuLink>
         <MenuLink to="/about" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}>About</MenuLink>
         <MenuLink to="/contact" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }}>Contact</MenuLink>
@@ -52,12 +55,19 @@ const StyledNav = styled.nav`
   padding: 0 5vw;
   z-index: 1000;
   width: 100%;
-  background: ${({ $scrolled, theme }) =>
-    $scrolled ? 'rgba(15, 15, 26, 0.95)' : 'transparent'};
+  background: ${({ $scrolled }) => ($scrolled ? 'rgba(15, 15, 26, 0.95)' : 'transparent')};
   backdrop-filter: ${({ $scrolled }) => ($scrolled ? 'blur(10px)' : 'none')};
-  transition: all 0.3s ease;
   border-bottom: ${({ $scrolled, theme }) =>
     $scrolled ? `1px solid ${theme.colors.primary}` : 'none'};
+  transition: ${({ $scrolled }) =>
+    $scrolled
+      ? 'background 0.3s ease, border-bottom 0.3s ease, backdrop-filter 0.3s ease'
+      : 'none'};
+
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    height: 70px;
+    padding: 0 4vw;
+  }
 `
 
 const Logo = styled(Link)`
@@ -71,6 +81,10 @@ const Logo = styled(Link)`
   &:hover {
     opacity: 0.8;
   }
+
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    font-size: 1.3rem;
+  }
 `
 
 const Hamburger = styled.div`
@@ -81,6 +95,10 @@ const Hamburger = styled.div`
 
   @media ${({ theme }) => theme.breakpoints.tablet} {
     display: block;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    font-size: 1.3rem;
   }
 `
 
@@ -104,9 +122,13 @@ const Menu = styled(motion.div)`
     transition: clip-path 0.8s ease;
     z-index: 999;
   }
+
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    top: 70px;
+  }
 `
 
-const MenuLink = styled(motion.create(Link))`
+const MenuLink = styled(motion(Link))`
   font-size: 1rem;
   font-weight: 500;
   position: relative;
@@ -117,19 +139,8 @@ const MenuLink = styled(motion.create(Link))`
     color: ${({ theme }) => theme.colors.primary};
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: ${({ theme }) => theme.colors.primary};
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    font-size: 0.9rem;
   }
 `
 

@@ -11,13 +11,14 @@ export const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     font-size: clamp(14px, 2vw, 18px);
+    background: transparent;
   }
 
   body {
-    background: ${({ theme }) => theme.colors.background};
+    background: transparent;
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.primary};
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     line-height: 1.6;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;

@@ -5,9 +5,16 @@ import { FaPalette, FaCode, FaCube, FaMobileAlt, FaRocket, FaEdit } from 'react-
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import Seo from '../../components/Seo/Seo'
 import {Link} from 'react-router-dom'
+import heroImage from '../../assets/zimages/heroimage.png'
+import heroAboutImage from '../../assets/zimages/heroabout.png'
 
 const Home = () => {
   const services = [
+    {
+      icon: <FaRocket />,
+      title: 'Landing Pages',
+      description: 'Create high-converting landing pages tailored to your marketing campaigns.',
+    },
     {
       icon: <FaPalette />,
       title: 'Graphic Design',
@@ -22,21 +29,6 @@ const Home = () => {
       icon: <FaCube />,
       title: '3D Animation',
       description: 'Dynamic 3D animations that bring your ideas to life with stunning visuals.',
-    },
-    {
-      icon: <FaMobileAlt />,
-      title: 'Web Development',
-      description: 'Modern, responsive websites that work flawlessly across all devices.',
-    },
-    {
-      icon: <FaRocket />,
-      title: 'Landing Pages',
-      description: 'Create high-converting landing pages tailored to your marketing campaigns.',
-    },
-    {
-      icon: <FaEdit />,
-      title: 'Content Creation',
-      description: 'Create engaging and compelling content that resonates with your audience.',
     },
   ]
 
@@ -72,12 +64,31 @@ const Home = () => {
             <CTAButton 
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.95 }}
-              as={motion.button}
+              as={motion(Link)}
+              to="/portfolio"
             >
               Explore Our Work
             </CTAButton>
           </motion.div>
         </HeroContent>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          style={{
+            position: 'absolute',
+            bottom: '5%',
+            left: 0,
+            right: 0,
+            textAlign: 'center',
+            color: '#fff200',
+            fontSize: '1.2rem',
+            fontFamily: 'monospace',
+            zIndex: 2,
+          }}
+        >
+          Design. Code. Animate.
+        </motion.p>
       </HeroSection>
 
       <ServicesSection>
@@ -121,15 +132,15 @@ const Home = () => {
               Learn More About Us
             </AboutButton>
           </motion.div>
-          {/* <AboutImage
+          <AboutImage
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             as={motion.div}
           >
-            <img src="/assets/images/about-image.jpg" alt="Our team working" />
-          </AboutImage> */}
+            <img src={heroAboutImage} alt="Why Choose Blentrik" />
+          </AboutImage>
         </AboutContent>
       </AboutSection>
     </Container>
@@ -137,10 +148,10 @@ const Home = () => {
 }
 
 const Container = styled.div`
-  padding-top: 80px;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  background: transparent;
 `
 
 const HeroSection = styled.section`
@@ -151,23 +162,12 @@ const HeroSection = styled.section`
   position: relative;
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(
-    to right,
-    ${({ theme }) => theme.colors.background} 0%,
-    rgba(15, 15, 26, 0.9) 50%,
-    ${({ theme }) => theme.colors.background} 100%
-  );
+  background: url(${heroImage}) center/cover no-repeat;
+  background-size: cover;
+  z-index: 1;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/assets/images/hero-image.jpg') center/cover no-repeat;
-    opacity: 0.2;
-    z-index: -1;
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    min-height: 500px;
   }
 `
 
@@ -176,6 +176,7 @@ const HeroContent = styled.div`
   max-width: 100%;
   margin: 0 auto;
   padding: 0 5vw;
+  padding-top: 80px;
   z-index: 1;
 
   h1 {
@@ -188,7 +189,7 @@ const HeroContent = styled.div`
     font-size: 1.2rem;
     max-width: 600px;
     margin-bottom: ${({ theme }) => theme.spacing.lg};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   @media ${({ theme }) => theme.breakpoints.mobile} {
@@ -288,7 +289,8 @@ const AboutContent = styled.div`
 
 const AboutImage = styled(motion.div)`
   img {
-    width: 100%;
+    width: 90%;
+    max-width: 600px;
     border-radius: 8px;
     box-shadow: ${({ theme }) => theme.shadows.lg};
   }
@@ -302,6 +304,7 @@ const AboutButton = styled(motion(Link))`
   display: inline-block;
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.background};
+  border: none;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
   font-size: 1rem;
   font-weight: 600;

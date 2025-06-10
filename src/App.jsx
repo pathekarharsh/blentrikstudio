@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/GlobalStyles'
@@ -8,12 +8,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import { FaWhatsapp } from 'react-icons/fa'
 import styled from 'styled-components'
+import ImagePreloader from './components/ImagePreloader'
 
 // Lazy loaded pages
 const Home = lazy(() => import('./Pages/Home/Home'))
 const Services = lazy(() => import('./Pages/Services/Services'))
 const About = lazy(() => import('./Pages/About/About'))
 const Contact = lazy(() => import('./Pages/Contact/Contact'))
+const Portfolio = lazy(() => import('./Pages/Portfolio/Portfolio'))
 
 // Theme settings
 const theme = {
@@ -45,6 +47,12 @@ const theme = {
     lg: '0 10px 30px rgba(0, 0, 0, 0.2)'
   }
 }
+
+const MainContentWrapper = styled.div`
+  background: transparent;
+  position: relative; /* Ensure it respects z-index for children */
+  width: 100%;
+`
 
 const WhatsAppButton = styled(motion.a)`
   position: fixed;
@@ -79,6 +87,70 @@ const WhatsAppButton = styled(motion.a)`
 
 const App = () => {
   const location = useLocation()
+  const [isLoading, setIsLoading] = useState(true)
+
+  const imagesToPreload = [
+    // Hero images
+    '/src/assets/zimages/heroimage.png',
+    '/src/assets/zimages/heroabout.png',
+    '/src/assets/zimages/service.png',
+    
+    // 3D Animation
+    '/src/assets/3danimation/1703.png',
+    '/src/assets/3danimation/coco.png',
+    '/src/assets/3danimation/lighthouse.png',
+    '/src/assets/3danimation/lowpoly.png',
+    
+    // Content
+    '/src/assets/content/fear.png',
+    '/src/assets/content/sasuke.png',
+    '/src/assets/content/thumb.jpg',
+    '/src/assets/content/YORU.png',
+    
+    // Graphic Design
+    '/src/assets/graphic/dakshin.jpg',
+    '/src/assets/graphic/newone.jpg',
+    '/src/assets/graphic/option.jpg',
+    '/src/assets/graphic/pne.jpg',
+    
+    // Landing Pages
+    '/src/assets/landingpage/one.jpg',
+    '/src/assets/landingpage/two.jpg',
+    '/src/assets/landingpage/three.jpg',
+    '/src/assets/landingpage/four.jpg',
+    
+    // Posters
+    '/src/assets/posters/five.jpg',
+    '/src/assets/posters/four.png',
+    '/src/assets/posters/one.jpg',
+    '/src/assets/posters/three.png',
+    '/src/assets/posters/two.png',
+    
+    // Test Images
+    '/src/assets/test/four.png',
+    '/src/assets/test/one.png',
+    '/src/assets/test/six.png',
+    '/src/assets/test/three.png',
+    '/src/assets/test/two.png',
+    
+    // UI/UX
+    '/src/assets/uiux/one.jpg',
+    '/src/assets/uiux/three.jpg',
+    '/src/assets/uiux/two.jpg',
+    
+    // Web Development
+    '/src/assets/webdev/four.jpg',
+    '/src/assets/webdev/one.jpg',
+    '/src/assets/webdev/three.jpg',
+    '/src/assets/webdev/two.jpg',
+    
+    // Services
+    '/assets/images/services-image.jpg'
+  ]
+
+  const handleLoadComplete = () => {
+    setIsLoading(false)
+  }
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '918830958681'
@@ -91,37 +163,50 @@ const App = () => {
     <HelmetProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Navbar />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Suspense fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </Suspense>
-          </motion.div>
-        </AnimatePresence>
-        <Footer />
-        <WhatsAppButton
-          href="#"
-          onClick={handleWhatsAppClick}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          <FaWhatsapp />
-        </WhatsAppButton>
+        {isLoading ? (
+          <ImagePreloader 
+            images={imagesToPreload} 
+            onLoadComplete={handleLoadComplete} 
+          />
+        ) : (
+          <>
+            <Navbar />
+            <AnimatePresence mode="wait">
+              <MainContentWrapper>
+                <motion.div
+                  key={location.pathname}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ background: 'transparent' }}
+                >
+                  <Suspense fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
+                    <Routes location={location} key={location.pathname}>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/services" element={<Services />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/portfolio" element={<Portfolio />} />
+                    </Routes>
+                  </Suspense>
+                </motion.div>
+              </MainContentWrapper>
+            </AnimatePresence>
+            <Footer />
+            <WhatsAppButton
+              href="#"
+              onClick={handleWhatsAppClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
+              <FaWhatsapp />
+            </WhatsAppButton>
+          </>
+        )}
       </ThemeProvider>
     </HelmetProvider>
   )

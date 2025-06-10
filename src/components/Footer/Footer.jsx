@@ -27,6 +27,7 @@ const Footer = () => {
           <LinkGroup>
             <h4>Quick Links</h4>
             <LinkItem to="/">Home</LinkItem>
+            <LinkItem to="/portfolio">Portfolio</LinkItem>
             <LinkItem to="/services">Services</LinkItem>
             <LinkItem to="/about">About</LinkItem>
             <LinkItem to="/contact">Contact</LinkItem>

@@ -448,7 +448,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Visual Stories
+            Instagram Posts
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'content'}
@@ -456,7 +456,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Motion Thumbnails
+            Thumbnails
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'landing'}
@@ -464,7 +464,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Digital Gateways
+            Landing Pages
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'poster'}
@@ -472,7 +472,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Print Masterpieces
+            Posters
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'uiux'}
@@ -480,7 +480,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Interface Realms
+            UI UX Design
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'web'}
@@ -488,7 +488,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Code Creations
+            Web Projects
           </FilterButton>
         </FilterButtons>
       </PortfolioControls>

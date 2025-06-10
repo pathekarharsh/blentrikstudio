@@ -9,13 +9,37 @@ import { HelmetProvider } from 'react-helmet-async'
 import { FaWhatsapp } from 'react-icons/fa'
 import styled from 'styled-components'
 import ImagePreloader from './components/ImagePreloader'
+import RouteTransition from './components/RouteTransition'
 
-// Lazy loaded pages
+// Lazy loaded pages with preloading
 const Home = lazy(() => import('./Pages/Home/Home'))
 const Services = lazy(() => import('./Pages/Services/Services'))
 const About = lazy(() => import('./Pages/About/About'))
 const Contact = lazy(() => import('./Pages/Contact/Contact'))
 const Portfolio = lazy(() => import('./Pages/Portfolio/Portfolio'))
+
+// Preload routes
+const preloadRoute = (route) => {
+  const preload = () => {
+    switch (route) {
+      case '/services':
+        Services.preload?.()
+        break
+      case '/about':
+        About.preload?.()
+        break
+      case '/contact':
+        Contact.preload?.()
+        break
+      case '/portfolio':
+        Portfolio.preload?.()
+        break
+      default:
+        break
+    }
+  }
+  return preload
+}
 
 // Theme settings
 const theme = {
@@ -85,9 +109,45 @@ const WhatsAppButton = styled(motion.a)`
   }
 `
 
+const LoadingScreen = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: ${({ theme }) => theme.colors.background};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  backdrop-filter: blur(5px);
+`
+
+const LoadingSpinner = styled(motion.div)`
+  width: 50px;
+  height: 50px;
+  border: 3px solid ${({ theme }) => theme.colors.backgroundLight};
+  border-top: 3px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`
+
+const PageTransitionWrapper = styled(motion.div)`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: ${({ theme }) => theme.colors.background};
+`
+
 const App = () => {
   const location = useLocation()
   const [isLoading, setIsLoading] = useState(true)
+  const [isPageLoading, setIsPageLoading] = useState(false)
 
   const imagesToPreload = [
     // Hero images
@@ -159,6 +219,31 @@ const App = () => {
     window.open(whatsappUrl, '_blank')
   }
 
+  useEffect(() => {
+    // Preload next route when hovering over nav links
+    const navLinks = document.querySelectorAll('a[href^="/"]')
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const path = link.getAttribute('href')
+        preloadRoute(path)()
+      })
+    })
+
+    return () => {
+      navLinks.forEach(link => {
+        link.removeEventListener('mouseenter', () => {})
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    setIsPageLoading(true)
+    const timer = setTimeout(() => {
+      setIsPageLoading(false)
+    }, 300) // Reduced from 500ms to 300ms
+    return () => clearTimeout(timer)
+  }, [location])
+
   return (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
@@ -170,30 +255,23 @@ const App = () => {
           />
         ) : (
           <>
-            <Navbar />
-            <AnimatePresence mode="wait">
-              <MainContentWrapper>
-                <motion.div
-                  key={location.pathname}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ background: 'transparent' }}
-                >
-                  <Suspense fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
-                    <Routes location={location} key={location.pathname}>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/services" element={<Services />} />
-                      <Route path="/about" element={<About />} />
-                      <Route path="/contact" element={<Contact />} />
-                      <Route path="/portfolio" element={<Portfolio />} />
-                    </Routes>
-                  </Suspense>
-                </motion.div>
-              </MainContentWrapper>
-            </AnimatePresence>
-            <Footer />
+            <RouteTransition location={location}>
+              <Navbar />
+              <Suspense fallback={
+                <LoadingScreen>
+                  <LoadingSpinner />
+                </LoadingScreen>
+              }>
+                <Routes location={location} key={location.pathname}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/portfolio" element={<Portfolio />} />
+                </Routes>
+              </Suspense>
+              <Footer />
+            </RouteTransition>
             <WhatsAppButton
               href="#"
               onClick={handleWhatsAppClick}

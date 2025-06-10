@@ -221,7 +221,7 @@ const Contact = () => {
 // Styled Components
 const Container = styled.div`
   width: 100%;
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
   background: transparent;
 `
@@ -234,7 +234,7 @@ const Hero = styled.section`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   background: linear-gradient(
     to right,
     ${({ theme }) => theme.colors.background} 0%,
@@ -274,7 +274,9 @@ const Highlight = styled.span`
 const ContactSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xxl} 5vw;
   background: ${({ theme }) => theme.colors.background};
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 `
 
 const ContactGrid = styled.div`

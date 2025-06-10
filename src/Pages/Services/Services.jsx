@@ -4,7 +4,36 @@ import { motion } from 'framer-motion'
 import { FaPalette, FaCode, FaCube, FaMobileAlt, FaRocket, FaEdit } from 'react-icons/fa'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import Seo from '../../components/Seo/Seo'
-import ourServiceImage from '../../assets/zimages/ourservice.png'
+
+// Import all images
+import dakshin from '../../assets/graphic/dakshin.jpg'
+import newone from '../../assets/graphic/newone.jpg'
+import option from '../../assets/graphic/option.jpg'
+import pne from '../../assets/graphic/pne.jpg'
+
+import uiuxOne from '../../assets/uiux/one.jpg'
+import uiuxTwo from '../../assets/uiux/two.jpg'
+import uiuxThree from '../../assets/uiux/three.jpg'
+
+import animation1703 from '../../assets/3danimation/1703.png'
+import animationCoco from '../../assets/3danimation/coco.png'
+import animationLighthouse from '../../assets/3danimation/lighthouse.png'
+import animationLowpoly from '../../assets/3danimation/lowpoly.png'
+
+import webdevOne from '../../assets/webdev/one.jpg'
+import webdevTwo from '../../assets/webdev/two.jpg'
+import webdevThree from '../../assets/webdev/three.jpg'
+import webdevFour from '../../assets/webdev/four.jpg'
+
+import landingOne from '../../assets/landingpage/one.jpg'
+import landingTwo from '../../assets/landingpage/two.jpg'
+import landingThree from '../../assets/landingpage/three.jpg'
+import landingFour from '../../assets/landingpage/four.jpg'
+
+import contentFear from '../../assets/content/fear.png'
+import contentSasuke from '../../assets/content/sasuke.png'
+import contentThumb from '../../assets/content/thumb.jpg'
+import contentYoru from '../../assets/content/YORU.png'
 
 const Services = () => {
   const services = [
@@ -13,71 +42,42 @@ const Services = () => {
       title: 'Graphic Design',
       description: 'Create visually stunning designs that communicate your brand message effectively.',
       longDescription: 'Our graphic design services include branding, print materials, social media graphics, and more. We combine creativity with strategy to deliver designs that not only look great but also achieve your business objectives.',
-      images: [
-        '/src/assets/graphic/dakshin.jpg',
-        '/src/assets/graphic/newone.jpg',
-        '/src/assets/graphic/option.jpg',
-        '/src/assets/graphic/pne.jpg'
-      ]
+      images: [dakshin, newone, option, pne]
     },
     {
       icon: <FaCode />,
       title: 'UI/UX Design',
       description: 'Design intuitive and engaging user interfaces that enhance user experience.',
       longDescription: 'We follow a user-centered design process to create interfaces that are both beautiful and functional. Our services include user research, wireframing and prototyping to ensure the best possible experience for your users.',
-      images: [
-        '/src/assets/uiux/one.jpg',
-        '/src/assets/uiux/two.jpg',
-        '/src/assets/uiux/three.jpg'
-      ]
+      images: [uiuxOne, uiuxTwo, uiuxThree]
     },
     {
       icon: <FaCube />,
       title: '3D Animation',
       description: 'Bring your ideas to life with high-quality 3D animations and visualizations.',
       longDescription: 'Our 3D animation services help you showcase your products, 3d Model or concepts in the most engaging way possible. We use the latest tools and techniques to create realistic and captivating animations.',
-      images: [
-        '/src/assets/3danimation/1703.png',
-        '/src/assets/3danimation/coco.png',
-        '/src/assets/3danimation/lighthouse.png',
-        '/src/assets/3danimation/lowpoly.png'
-      ]
+      images: [animation1703, animationCoco, animationLighthouse, animationLowpoly]
     },
     {
       icon: <FaMobileAlt />,
       title: 'Web Development',
       description: 'Build responsive, high-performance websites that work across all devices.',
       longDescription: 'Our web development services cover everything from simple landing pages to complex web applications. We use modern technologies like React to build fast, secure, and scalable websites that deliver exceptional user experiences.',
-      images: [
-        '/src/assets/webdev/one.jpg',
-        '/src/assets/webdev/two.jpg',
-        '/src/assets/webdev/three.jpg',
-        '/src/assets/webdev/four.jpg'
-      ]
+      images: [webdevOne, webdevTwo, webdevThree, webdevFour]
     },
     {
       icon: <FaRocket />,
       title: 'Landing Pages',
       description: 'Create high-converting landing pages tailored to your marketing campaigns.',
       longDescription: 'We design and develop landing pages that are optimized for conversions. Our approach combines strategic design, and technical optimization to maximize your campaign performance and ROI.',
-      images: [
-        '/src/assets/landingpage/one.jpg',
-        '/src/assets/landingpage/two.jpg',
-        '/src/assets/landingpage/three.jpg',
-        '/src/assets/landingpage/four.jpg'
-      ]
+      images: [landingOne, landingTwo, landingThree, landingFour]
     },
     {
       icon: <FaEdit />,
       title: 'Content Creation',
       description: 'Create engaging and compelling content that resonates with your audience.',
       longDescription: 'Our content creation services help you develop high-quality, engaging content that connects with your target audience. We can help you with the shoot of the content and storywriting.',
-      images: [
-        '/src/assets/content/fear.png',
-        '/src/assets/content/sasuke.png',
-        '/src/assets/content/thumb.jpg',
-        '/src/assets/content/YORU.png'
-      ]
+      images: [contentFear, contentSasuke, contentThumb, contentYoru]
     },
   ]
 

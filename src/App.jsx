@@ -151,61 +151,58 @@ const App = () => {
 
   const imagesToPreload = [
     // Hero images
-    '/src/assets/zimages/heroimage.png',
-    '/src/assets/zimages/heroabout.png',
-    '/src/assets/zimages/service.png',
+    '../assets/zimages/heroimage.webp',
+    '../assets/zimages/heroabout.webp',
+    '../assets/zimages/service.webp',
     
     // 3D Animation
-    '/src/assets/3danimation/1703.png',
-    '/src/assets/3danimation/coco.png',
-    '/src/assets/3danimation/lighthouse.png',
-    '/src/assets/3danimation/lowpoly.png',
+    '../assets/3danimation/1703.webp',
+    '../assets/3danimation/coco.webp',
+    '../assets/3danimation/lighthouse.webp',
+    '../assets/3danimation/lowpoly.webp',
     
     // Content
-    '/src/assets/content/fear.png',
-    '/src/assets/content/sasuke.png',
-    '/src/assets/content/thumb.jpg',
-    '/src/assets/content/YORU.png',
+    '../assets/content/fear.webp',
+    '../assets/content/sasuke.webp',
+    '../assets/content/thumb.webp',
+    '../assets/content/YORU.webp',
     
     // Graphic Design
-    '/src/assets/graphic/dakshin.jpg',
-    '/src/assets/graphic/newone.jpg',
-    '/src/assets/graphic/option.jpg',
-    '/src/assets/graphic/pne.jpg',
+    '../assets/graphic/dakshin.webp',
+    '../assets/graphic/newone.webp',
+    '../assets/graphic/option.webp',
+    '../assets/graphic/pne.webp',
     
     // Landing Pages
-    '/src/assets/landingpage/one.jpg',
-    '/src/assets/landingpage/two.jpg',
-    '/src/assets/landingpage/three.jpg',
-    '/src/assets/landingpage/four.jpg',
+    '../assets/landingpage/one.webp',
+    '../assets/landingpage/two.webp',
+    '../assets/landingpage/three.webp',
+    '../assets/landingpage/four.webp',
     
     // Posters
-    '/src/assets/posters/five.jpg',
-    '/src/assets/posters/four.png',
-    '/src/assets/posters/one.jpg',
-    '/src/assets/posters/three.png',
-    '/src/assets/posters/two.png',
+    '../assets/posters/five.webp',
+    '../assets/posters/four.webp',
+    '../assets/posters/one.webp',
+    '../assets/posters/three.webp',
+    '../assets/posters/two.webp',
     
     // Test Images
-    '/src/assets/test/four.png',
-    '/src/assets/test/one.png',
-    '/src/assets/test/six.png',
-    '/src/assets/test/three.png',
-    '/src/assets/test/two.png',
+    '../assets/test/four.webp',
+    '../assets/test/one.webp',
+    '../assets/test/six.webp',
+    '../assets/test/three.webp',
+    '../assets/test/two.webp',
     
     // UI/UX
-    '/src/assets/uiux/one.jpg',
-    '/src/assets/uiux/three.jpg',
-    '/src/assets/uiux/two.jpg',
+    '../assets/uiux/one.webp',
+    '../assets/uiux/three.webp',
+    '../assets/uiux/two.webp',
     
     // Web Development
-    '/src/assets/webdev/four.jpg',
-    '/src/assets/webdev/one.jpg',
-    '/src/assets/webdev/three.jpg',
-    '/src/assets/webdev/two.jpg',
-    
-    // Services
-    '/assets/images/services-image.jpg'
+    '../assets/webdev/four.webp',
+    '../assets/webdev/one.webp',
+    '../assets/webdev/three.webp',
+    '../assets/webdev/two.webp'
   ]
 
   const handleLoadComplete = () => {

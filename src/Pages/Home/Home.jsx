@@ -5,8 +5,8 @@ import { FaPalette, FaCode, FaCube, FaMobileAlt, FaRocket, FaEdit } from 'react-
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import Seo from '../../components/Seo/Seo'
 import {Link} from 'react-router-dom'
-import heroImage from '../../assets/zimages/heroimage.png'
-import heroAboutImage from '../../assets/zimages/heroabout.png'
+import heroImage from '../../assets/zimages/heroimage.webp'
+import heroAboutImage from '../../assets/zimages/heroabout.webp'
 
 const Home = () => {
   const services = [

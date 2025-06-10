@@ -3,57 +3,58 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { FaSearch, FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import Seo from '../../components/Seo/Seo'
-import serviceImage from '../../assets/zimages/service.png'
+import OptimizedImage from '../../components/OptimizedImage'
+import serviceImage from '../../assets/zimages/service.webp'
 
 // Import all images with corrected paths
 // 3D Animation
-import geometryNodes from '../../assets/3danimation/1703.png'
-import coco from '../../assets/3danimation/coco.png'
-import lighthouse from '../../assets/3danimation/lighthouse.png'
-import lowpoly from '../../assets/3danimation/lowpoly.png'
+import geometryNodes from '../../assets/3danimation/1703.webp'
+import coco from '../../assets/3danimation/coco.webp'
+import lighthouse from '../../assets/3danimation/lighthouse.webp'
+import lowpoly from '../../assets/3danimation/lowpoly.webp'
 
 // Content (Thumbnails)
-import fear from '../../assets/content/fear.png'
-import sasuke from '../../assets/content/sasuke.png'
-import thumb from '../../assets/content/thumb.jpg'
-import yoru from '../../assets/content/YORU.png'
+import fear from '../../assets/content/fear.webp'
+import sasuke from '../../assets/content/sasuke.webp'
+import thumb from '../../assets/content/thumb.webp'
+import yoru from '../../assets/content/YORU.webp'
 
 // Graphic (Instagram posts)
-import dakshinPost from '../../assets/graphic/dakshin.jpg'
-import newone from '../../assets/graphic/newone.jpg'
-import option from '../../assets/graphic/option.jpg'
-import pne from '../../assets/graphic/pne.jpg'
+import dakshinPost from '../../assets/graphic/dakshin.webp'
+import newone from '../../assets/graphic/newone.webp'
+import option from '../../assets/graphic/option.webp'
+import pne from '../../assets/graphic/pne.webp'
 
 // Landing Pages
-import dakshinLanding from '../../assets/landingpage/four.jpg'
-import medicalLanding from '../../assets/landingpage/one.jpg'
-import nikeLanding from '../../assets/landingpage/three.jpg'
-import portfolioLanding from '../../assets/landingpage/two.jpg'
+import dakshinLanding from '../../assets/landingpage/four.webp'
+import medicalLanding from '../../assets/landingpage/one.webp'
+import nikeLanding from '../../assets/landingpage/three.webp'
+import portfolioLanding from '../../assets/landingpage/two.webp'
 
 // Posters
-import kashivanPoster from '../../assets/posters/five.jpg'
-import dakshinPoster from '../../assets/posters/four.png'
-import workshopPoster from '../../assets/posters/one.jpg'
-import ramtekPoster from '../../assets/posters/three.png'
-import designWorkshopPoster from '../../assets/posters/two.png'
+import kashivanPoster from '../../assets/posters/five.webp'
+import dakshinPoster from '../../assets/posters/four.webp'
+import workshopPoster from '../../assets/posters/one.webp'
+import ramtekPoster from '../../assets/posters/three.webp'
+import designWorkshopPoster from '../../assets/posters/two.webp'
 
 // Test (3D Renders)
-import deadPlant from '../../assets/test/four.png'
-import sportscar from '../../assets/test/one.png'
-import thorHammer from '../../assets/test/six.png'
-import scifiWorld from '../../assets/test/three.png'
-import natureHome from '../../assets/test/two.png'
+import deadPlant from '../../assets/test/four.webp'
+import sportscar from '../../assets/test/one.webp'
+import thorHammer from '../../assets/test/six.webp'
+import scifiWorld from '../../assets/test/three.webp'
+import natureHome from '../../assets/test/two.webp'
 
 // UI/UX
-import coffeeShopUI from '../../assets/uiux/one.jpg'
-import medicalUI from '../../assets/uiux/three.jpg'
-import arsenalUI from '../../assets/uiux/two.jpg'
+import coffeeShopUI from '../../assets/uiux/one.webp'
+import medicalUI from '../../assets/uiux/three.webp'
+import arsenalUI from '../../assets/uiux/two.webp'
 
 // Web Development
-import collegeProject from '../../assets/webdev/four.jpg'
-import medicalWebsite from '../../assets/webdev/one.jpg'
-import aiSummariser from '../../assets/webdev/three.jpg'
-import hackathonProject from '../../assets/webdev/two.jpg'
+import collegeProject from '../../assets/webdev/four.webp'
+import medicalWebsite from '../../assets/webdev/one.webp'
+import aiSummariser from '../../assets/webdev/three.webp'
+import hackathonProject from '../../assets/webdev/two.webp'
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -398,11 +399,11 @@ const Portfolio = () => {
   }
 
   return (
-    <PortfolioContainer>
+    <Container>
       <Seo 
         title="Portfolio"
-        description="Explore our creative portfolio featuring 3D animation, graphic design, web development, and more."
-        keywords="portfolio, 3d animation, graphic design, web development, creative work"
+        description="Explore our creative portfolio featuring graphic design, UI/UX, 3D animation, and web development projects."
+        keywords="portfolio, graphic design, ui/ux, 3d animation, web development"
       />
       
       <HeroSection>
@@ -412,14 +413,14 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Our <Highlight>Creative Universe</Highlight>
+            Our <Highlight>Portfolio</Highlight>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Where imagination meets execution across multiple creative dimensions
+            Explore our creative work across various disciplines
           </motion.p>
         </HeroContent>
       </HeroSection>
@@ -432,7 +433,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            All Dimensions
+            All Work
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === '3d'}
@@ -440,15 +441,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            3D Universe
-          </FilterButton>
-          <FilterButton 
-            $active={selectedCategory === 'graphic'}
-            onClick={() => setSelectedCategory('graphic')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Instagram Posts
+            3D Animation
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'content'}
@@ -457,6 +450,14 @@ const Portfolio = () => {
             whileTap={{ scale: 0.95 }}
           >
             Thumbnails
+          </FilterButton>
+          <FilterButton 
+            $active={selectedCategory === 'graphic'}
+            onClick={() => setSelectedCategory('graphic')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Graphic Design
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'landing'}
@@ -496,7 +497,6 @@ const Portfolio = () => {
       <PortfolioGrid>
         {filteredItems
           .sort((a, b) => {
-            // Sort posters to the end
             if (a.category === 'poster' && b.category !== 'poster') return 1;
             if (a.category !== 'poster' && b.category === 'poster') return -1;
             return 0;
@@ -515,7 +515,12 @@ const Portfolio = () => {
               transition={{ duration: 0.5 }}
               layout
             >
-              <img src={item.image} alt={item.title} />
+              <OptimizedImage
+                src={item.image}
+                alt={item.title}
+                objectFit="cover"
+                placeholderColor="#1a1a1a"
+              />
               <ItemOverlay>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -536,7 +541,12 @@ const Portfolio = () => {
               <FaTimes size={24} />
             </CloseButton>
             <LightboxImage>
-              <img src={selectedImage.image} alt={selectedImage.title} />
+              <OptimizedImage
+                src={selectedImage.image}
+                alt={selectedImage.title}
+                objectFit="contain"
+                placeholderColor="#1a1a1a"
+              />
               <LightboxNav>
                 <NavButton onClick={prevImage}>
                   <FaArrowLeft size={24} />
@@ -554,12 +564,12 @@ const Portfolio = () => {
           </LightboxContent>
         </Lightbox>
       )}
-    </PortfolioContainer>
+    </Container>
   )
 }
 
 // Styled Components
-const PortfolioContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -701,7 +711,7 @@ const PortfolioGrid = styled(motion.div)`
   grid-auto-rows: minmax(80px, auto);
   gap: ${({ theme }) => theme.spacing.sm};
   padding: ${({ theme }) => theme.spacing.xl} 5vw;
-  max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
 
   @media ${({ theme }) => theme.breakpoints.tablet} {
@@ -715,65 +725,45 @@ const PortfolioGrid = styled(motion.div)`
 
 const PortfolioItem = styled(motion.div)`
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
   cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  grid-column: ${props => {
+    switch (props.$aspect) {
+      case 'portrait':
+        return 'span 2';
+      case 'landscape':
+        return 'span 4';
+      case 'square':
+        return 'span 3';
+      default:
+        return 'span 3';
+    }
+  }};
+  grid-row: ${props => {
+    switch (props.$aspect) {
+      case 'portrait':
+        return 'span 4';
+      case 'landscape':
+        return 'span 3';
+      case 'square':
+        return 'span 3';
+      default:
+        return 'span 3';
+    }
+  }};
 
-  /* Grid spans based on aspect ratio and category */
-  grid-column: ${({ $aspect, $category }) => {
-    if ($category === 'poster') return 'span 3';
-    if ($aspect === 'square') return 'span 2';
-    return 'span 4';
-  }};
-  
-  grid-row: ${({ $aspect, $category }) => {
-    if ($category === 'poster') return 'span 6';
-    if ($aspect === 'square') return 'span 2';
-    return 'span 3';
-  }};
-
-  /* Order items to bring posters to bottom */
-  order: ${({ $category }) => {
-    if ($category === 'poster') return 2;
-    return 1;
-  }};
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-    
-    img {
-      transform: scale(1.1);
-    }
-  }
-
-  /* Responsive adjustments */
-  @media ${({ theme }) => theme.breakpoints.tablet} {
-    grid-column: ${({ $aspect, $category }) => {
-      if ($category === 'poster') return 'span 2';
-      if ($aspect === 'square') return 'span 2';
-      return 'span 3';
-    }};
-    
-    grid-row: ${({ $aspect, $category }) => {
-      if ($category === 'poster') return 'span 4';
-      if ($aspect === 'square') return 'span 2';
-      return 'span 2';
-    }};
-  }
-
-  @media ${({ theme }) => theme.breakpoints.mobile} {
-    grid-column: span 2;
-    grid-row: span 2;
   }
 `
 

@@ -32,7 +32,15 @@ const Navbar = () => {
 
       <Menu isOpen={isOpen}>
         <MenuLink to="/" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.3 }}>Home</MenuLink>
-        <MenuLink to="/portfolio" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4 }}>Portfolio</MenuLink>
+        <MenuLink
+          to="/portfolio"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="portfolio-link"
+        >
+          Portfolio
+        </MenuLink>
         <MenuLink to="/services" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4 }}>Services</MenuLink>
         <MenuLink to="/about" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}>About</MenuLink>
         <MenuLink to="/contact" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }}>Contact</MenuLink>
@@ -137,6 +145,27 @@ const MenuLink = styled(motion(Link))`
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &.portfolio-link {
+    color: ${({ theme }) => theme.colors.warning};
+  }
+  &.portfolio-link:hover {
+    color: ${({ theme }) => theme.colors.warning};
+  }
+  &.portfolio-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.warning};
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+  }
+  &.portfolio-link:hover::after {
+    width: 100%;
   }
 
   @media ${({ theme }) => theme.breakpoints.mobile} {

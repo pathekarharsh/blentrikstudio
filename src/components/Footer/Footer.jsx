@@ -45,7 +45,6 @@ const Footer = () => {
             <h4>Contact</h4>
             <p>blentrik.studio@gmail.com</p>
             <p>+91 88309 58681</p>
-            <p>Nagpur, Maharashtra, India</p>
           </LinkGroup>
         </LinksSection>
       </Content>

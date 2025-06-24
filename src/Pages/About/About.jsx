@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import Seo from '../../components/Seo/Seo'
-import thumb from '../../assets/content/thumb.webp'
+import thumb from '../../assets/about.webp'
 
 const About = () => {
   return (

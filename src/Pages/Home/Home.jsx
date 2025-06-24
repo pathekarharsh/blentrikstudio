@@ -47,14 +47,15 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Bringing <Highlight>Your Brand </Highlight> to Life with Design, Code & Motion
+            Creating with <Highlight>Design,</Highlight><br />
+            <Highlight>Code & Motion</Highlight>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We blend creativity with technology to deliver exceptional digital experiences that drive results.
+            We craft seamless digital experiences by uniting design, code, and motion — turning ideas into impactful realities.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

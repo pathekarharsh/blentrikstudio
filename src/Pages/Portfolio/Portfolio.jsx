@@ -64,317 +64,45 @@ const Portfolio = () => {
   // Portfolio items data with proper categorization and descriptions
   const portfolioItems = [
     // 3D Animation
-    { 
-      id: 1, 
-      category: '3d', 
-      image: geometryNodes, 
-      title: 'Geometry Nodes Project', 
-      description: 'Advanced Blender geometry nodes creation',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 2, 
-      category: '3d', 
-      image: coco, 
-      title: 'Coca-Cola Can Model', 
-      description: 'Hyper-realistic Blender model of Coca-Cola cans',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 3, 
-      category: '3d', 
-      image: lighthouse, 
-      title: 'Low Poly Lighthouse', 
-      description: 'Stylized low poly lighthouse scene',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 4, 
-      category: '3d', 
-      image: lowpoly, 
-      title: 'Mountain Sunrise', 
-      description: 'Low poly mountain landscape at sunrise',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    
-    // Content (Thumbnails)
-    { 
-      id: 5, 
-      category: 'content', 
-      image: fear, 
-      title: 'PUBG Montage Thumbnail', 
-      description: 'Thumbnail for gaming montage video',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 6, 
-      category: 'content', 
-      image: sasuke, 
-      title: 'Sasuke Edit Thumbnail', 
-      description: 'Anime edit thumbnail featuring Sasuke',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 7, 
-      category: 'content', 
-      image: thumb, 
-      title: 'Dakshin Documentary Thumbnail', 
-      description: 'Thumbnail for travel documentary',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 8, 
-      category: 'content', 
-      image: yoru, 
-      title: 'Valorant Edit Thumbnail', 
-      description: 'Thumbnail featuring Valorant agent Yoru',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    
-    // Graphic Design (Instagram)
-    { 
-      id: 9, 
-      category: 'graphic', 
-      image: dakshinPost, 
-      title: 'Dakshin 2.0 Trip Post', 
-      description: 'Instagram post for travel group',
-      aspect: 'square',
-      size: '1080x1080'
-    },
-    { 
-      id: 10, 
-      category: 'graphic', 
-      image: newone, 
-      title: 'Dakshin Poster Variant 2', 
-      description: 'Alternative design for travel poster',
-      aspect: 'square',
-      size: '1080x1080'
-    },
-    { 
-      id: 11, 
-      category: 'graphic', 
-      image: option, 
-      title: 'Blentrik Instagram Post', 
-      description: 'Promotional post for creative services',
-      aspect: 'square',
-      size: '1080x1080'
-    },
-    { 
-      id: 12, 
-      category: 'graphic', 
-      image: pne, 
-      title: 'Dakshin Poster Variant 3', 
-      description: 'Third variant of travel poster design',
-      aspect: 'square',
-      size: '1080x1080'
-    },
-    
-    // Landing Pages
-    { 
-      id: 13, 
-      category: 'landing', 
-      image: dakshinLanding, 
-      title: 'Dakshin 2.0 Trip Landing', 
-      description: 'Landing page for travel group trip',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 14, 
-      category: 'landing', 
-      image: medicalLanding, 
-      title: 'Medical Fund Landing', 
-      description: 'Landing page for medical fundraiser',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 15, 
-      category: 'landing', 
-      image: nikeLanding, 
-      title: 'Nike Clone Project', 
-      description: 'Clone of Nike landing page',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 16, 
-      category: 'landing', 
-      image: portfolioLanding, 
-      title: 'Personal Portfolio', 
-      description: 'Custom portfolio landing page',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    
-    // Posters
-    { 
-      id: 17, 
-      category: 'poster', 
-      image: kashivanPoster, 
-      title: 'Kashivan Trip Poster', 
-      description: 'Travel poster for Kashivan trip',
-      aspect: 'portrait',
-      size: '2480x3508'
-    },
-    { 
-      id: 18, 
-      category: 'poster', 
-      image: dakshinPoster, 
-      title: 'Dakshin 2.0 Poster', 
-      description: 'Official trip poster design',
-      aspect: 'portrait',
-      size: '2480x3508'
-    },
-    { 
-      id: 19, 
-      category: 'poster', 
-      image: workshopPoster, 
-      title: 'Workshop Poster', 
-      description: 'Poster for creative workshop',
-      aspect: 'portrait',
-      size: '2480x3508'
-    },
-    { 
-      id: 20, 
-      category: 'poster', 
-      image: ramtekPoster, 
-      title: 'Ramtek Trip Poster', 
-      description: 'Poster for Ramtek travel event',
-      aspect: 'portrait',
-      size: '2480x3508'
-    },
-    { 
-      id: 21, 
-      category: 'poster', 
-      image: designWorkshopPoster, 
-      title: 'Design Workshop', 
-      description: 'Poster for graphic design workshop',
-      aspect: 'portrait',
-      size: '2480x3508'
-    },
-    
+    { id: 1, category: '3d', image: geometryNodes, title: 'Geometry Nodes Project', description: 'Advanced Blender geometry nodes creation', aspect: 'landscape', size: '1920x1080' },
+    { id: 2, category: '3d', image: coco, title: 'Coca-Cola Can Model', description: 'Hyper-realistic Blender model of Coca-Cola cans', aspect: 'landscape', size: '1920x1080' },
+    { id: 3, category: '3d', image: lighthouse, title: 'Low Poly Lighthouse', description: 'Stylized low poly lighthouse scene', aspect: 'landscape', size: '1920x1080' },
+    { id: 4, category: '3d', image: lowpoly, title: 'Mountain Sunrise', description: 'Low poly mountain landscape at sunrise', aspect: 'landscape', size: '1920x1080' },
     // Test (Additional 3D Renders)
-    { 
-      id: 22, 
-      category: '3d', 
-      image: deadPlant, 
-      title: 'Dead Plant Sci-Fi', 
-      description: '3D render of sci-fi environment',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 23, 
-      category: '3d', 
-      image: sportscar, 
-      title: 'Sports Car Render', 
-      description: '3D render of luxury sports car',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 24, 
-      category: '3d', 
-      image: thorHammer, 
-      title: "Thor's Hammer", 
-      description: '3D model of Mjolnir',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 25, 
-      category: '3d', 
-      image: scifiWorld, 
-      title: 'Sci-Fi World', 
-      description: 'Futuristic cityscape render',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 26, 
-      category: '3d', 
-      image: natureHome, 
-      title: 'Peaceful Nature Home', 
-      description: '3D render of cabin in nature',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    
-    // UI/UX Designs
-    { 
-      id: 27, 
-      category: 'uiux', 
-      image: coffeeShopUI, 
-      title: 'Coffee Shop UI', 
-      description: 'Mobile app design for cafe',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 28, 
-      category: 'uiux', 
-      image: medicalUI, 
-      title: 'Medical Website UI', 
-      description: 'Healthcare platform design',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 29, 
-      category: 'uiux', 
-      image: arsenalUI, 
-      title: 'Arsenal FC Clone', 
-      description: 'Football club website redesign',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    
+    { id: 22, category: '3d', image: deadPlant, title: 'Dead Plant Sci-Fi', description: '3D render of sci-fi environment', aspect: 'landscape', size: '1920x1080' },
+    { id: 23, category: '3d', image: sportscar, title: 'Sports Car Render', description: '3D render of luxury sports car', aspect: 'landscape', size: '1920x1080' },
+    { id: 24, category: '3d', image: thorHammer, title: "Thor's Hammer", description: '3D model of Mjolnir', aspect: 'landscape', size: '1920x1080' },
+    { id: 25, category: '3d', image: scifiWorld, title: 'Sci-Fi World', description: 'Futuristic cityscape render', aspect: 'landscape', size: '1920x1080' },
+    { id: 26, category: '3d', image: natureHome, title: 'Peaceful Nature Home', description: '3D render of cabin in nature', aspect: 'landscape', size: '1920x1080' },
+
     // Web Development
-    { 
-      id: 30, 
-      category: 'web', 
-      image: collegeProject, 
-      title: 'College Project', 
-      description: 'Educational web application',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 31, 
-      category: 'web', 
-      image: medicalWebsite, 
-      title: 'Medical Website', 
-      description: 'Healthcare information portal',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 32, 
-      category: 'web', 
-      image: aiSummariser, 
-      title: 'AI Summarizer', 
-      description: 'Personal project for text processing',
-      aspect: 'landscape',
-      size: '1920x1080'
-    },
-    { 
-      id: 33, 
-      category: 'web', 
-      image: hackathonProject, 
-      title: 'Hackathon Winner', 
-      description: 'Award-winning web project',
-      aspect: 'landscape',
-      size: '1920x1080'
-    }
+    { id: 30, category: 'web', image: collegeProject, title: 'College Project', description: 'Educational web application', aspect: 'landscape', size: '1920x1080' },
+    { id: 31, category: 'web', image: medicalWebsite, title: 'Medical Website', description: 'Healthcare information portal', aspect: 'landscape', size: '1920x1080' },
+    { id: 32, category: 'web', image: aiSummariser, title: 'AI Summarizer', description: 'Personal project for text processing', aspect: 'landscape', size: '1920x1080' },
+    { id: 33, category: 'web', image: hackathonProject, title: 'Hackathon Winner', description: 'Award-winning web project', aspect: 'landscape', size: '1920x1080' },
+
+    // UI/UX
+    { id: 27, category: 'uiux', image: coffeeShopUI, title: 'Coffee Shop UI', description: 'Mobile app design for cafe', aspect: 'landscape', size: '1920x1080' },
+    { id: 28, category: 'uiux', image: medicalUI, title: 'Medical Website UI', description: 'Healthcare platform design', aspect: 'landscape', size: '1920x1080' },
+    { id: 29, category: 'uiux', image: arsenalUI, title: 'Arsenal FC Clone', description: 'Football club website redesign', aspect: 'landscape', size: '1920x1080' },
+
+    // Graphic Design (includes all posters, thumbnails, posts, etc.)
+    // Thumbnails
+    { id: 5, category: 'graphic', image: fear, title: 'PUBG Montage Thumbnail', description: 'Thumbnail for gaming montage video', aspect: 'landscape', size: '1920x1080' },
+    { id: 6, category: 'graphic', image: sasuke, title: 'Sasuke Edit Thumbnail', description: 'Anime edit thumbnail featuring Sasuke', aspect: 'landscape', size: '1920x1080' },
+    { id: 7, category: 'graphic', image: thumb, title: 'Dakshin Documentary Thumbnail', description: 'Thumbnail for travel documentary', aspect: 'landscape', size: '1920x1080' },
+    { id: 8, category: 'graphic', image: yoru, title: 'Valorant Edit Thumbnail', description: 'Thumbnail featuring Valorant agent Yoru', aspect: 'landscape', size: '1920x1080' },
+    // Instagram posts
+    { id: 9, category: 'graphic', image: dakshinPost, title: 'Dakshin 2.0 Trip Post', description: 'Instagram post for travel group', aspect: 'square', size: '1080x1080' },
+    { id: 10, category: 'graphic', image: newone, title: 'Dakshin Poster Variant 2', description: 'Alternative design for travel poster', aspect: 'square', size: '1080x1080' },
+    { id: 11, category: 'graphic', image: option, title: 'Blentrik Instagram Post', description: 'Promotional post for creative services', aspect: 'square', size: '1080x1080' },
+    { id: 12, category: 'graphic', image: pne, title: 'Dakshin Poster Variant 3', description: 'Third variant of travel poster design', aspect: 'square', size: '1080x1080' },
+    // Posters
+    { id: 17, category: 'graphic', image: kashivanPoster, title: 'Kashivan Trip Poster', description: 'Travel poster for Kashivan trip', aspect: 'portrait', size: '2480x3508' },
+    { id: 18, category: 'graphic', image: dakshinPoster, title: 'Dakshin 2.0 Poster', description: 'Official trip poster design', aspect: 'portrait', size: '2480x3508' },
+    { id: 19, category: 'graphic', image: workshopPoster, title: 'Workshop Poster', description: 'Poster for creative workshop', aspect: 'portrait', size: '2480x3508' },
+    { id: 20, category: 'graphic', image: ramtekPoster, title: 'Ramtek Trip Poster', description: 'Poster for Ramtek travel event', aspect: 'portrait', size: '2480x3508' },
+    { id: 21, category: 'graphic', image: designWorkshopPoster, title: 'Design Workshop', description: 'Poster for graphic design workshop', aspect: 'portrait', size: '2480x3508' },
   ]
 
   // Filter items based on selected category
@@ -441,15 +169,23 @@ const Portfolio = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            3D Animation
+            3D World
           </FilterButton>
           <FilterButton 
-            $active={selectedCategory === 'content'}
-            onClick={() => setSelectedCategory('content')}
+            $active={selectedCategory === 'web'}
+            onClick={() => setSelectedCategory('web')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Thumbnails
+            Web Development
+          </FilterButton>
+          <FilterButton 
+            $active={selectedCategory === 'uiux'}
+            onClick={() => setSelectedCategory('uiux')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            UI/UX Design
           </FilterButton>
           <FilterButton 
             $active={selectedCategory === 'graphic'}
@@ -458,38 +194,6 @@ const Portfolio = () => {
             whileTap={{ scale: 0.95 }}
           >
             Graphic Design
-          </FilterButton>
-          <FilterButton 
-            $active={selectedCategory === 'landing'}
-            onClick={() => setSelectedCategory('landing')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Landing Pages
-          </FilterButton>
-          <FilterButton 
-            $active={selectedCategory === 'poster'}
-            onClick={() => setSelectedCategory('poster')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Posters
-          </FilterButton>
-          <FilterButton 
-            $active={selectedCategory === 'uiux'}
-            onClick={() => setSelectedCategory('uiux')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            UI UX Design
-          </FilterButton>
-          <FilterButton 
-            $active={selectedCategory === 'web'}
-            onClick={() => setSelectedCategory('web')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Web Projects
           </FilterButton>
         </FilterButtons>
       </PortfolioControls>
@@ -896,23 +600,37 @@ const LightboxNav = styled.div`
 `
 
 const NavButton = styled.button`
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   border: none;
   color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   pointer-events: auto;
-  backdrop-filter: blur(5px);
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.primary};
-    transform: scale(1.1);
+    color: ${({ theme }) => theme.colors.primary};
+    background: transparent;
+    transform: none;
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 `
 
